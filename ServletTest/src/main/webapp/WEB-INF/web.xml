@@ -5,41 +5,88 @@
 	id="WebApp_ID" version="6.0">
 	<display-name>ServletTest</display-name>
 	<servlet>
-	  <servlet-name>T01SevletLifeCycle</servlet-name>
-	  <servlet-class>kr.or.ddit.web.T01SevletLifeCycle</servlet-class>
-	  <init-param>
-	    <param-name>initParam</param-name>
-	    <param-value>초기값 설정</param-value>
-	  </init-param>
+		<servlet-name>T01SevletLifeCycle</servlet-name>
+		<servlet-class>kr.or.ddit.web.T01SevletLifeCycle</servlet-class>
+		<init-param>
+			<param-name>initParam</param-name>
+			<param-value>초기값 설정</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
-	  <servlet-name>T01SevletLifeCycle</servlet-name>
-	  <url-pattern>/T01SevletLifeCycle</url-pattern>
+		<servlet-name>T01SevletLifeCycle</servlet-name>
+		<url-pattern>/T01SevletLifeCycle</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>T02ServletTest</servlet-name>
+		<servlet-class>kr.or.ddit.web.T02ServletTest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>T02ServletTest</servlet-name>
+		<url-pattern>/T02ServletTest</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>T03RequestTest</servlet-name>
+		<servlet-class>kr.or.ddit.web.T03RequestTest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>T03RequestTest</servlet-name>
+		<url-pattern>/T03RequestTest</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>T04ServeletPrameter</servlet-name>
+		<servlet-class>kr.or.ddit.web.T04ServeletPrameter</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>T04ServeletPrameter</servlet-name>
+		<url-pattern>/T04ServeletPrameter</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-	  <servlet-name>T02ServletTest</servlet-name>
-	  <servlet-class>kr.or.ddit.web.T02ServletTest</servlet-class>
+		<servlet-name>T05ErroerHandler</servlet-name>
+		<servlet-class>kr.or.ddit.web.T05ErroerHandler</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	  <servlet-name>T02ServletTest</servlet-name>
-	  <url-pattern>/T02ServletTest</url-pattern>
+		<servlet-name>T05ErroerHandler</servlet-name>
+		<url-pattern>/T05ErroerHandler</url-pattern>
 	</servlet-mapping>
+
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/T05ErroerHandler</location>
+	</error-page>
 	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/T05ErroerHandler</location>
+	</error-page>
+	
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+
+
 	<servlet>
-	  <servlet-name>T03RequestTest</servlet-name>
-	  <servlet-class>kr.or.ddit.web.T03RequestTest</servlet-class>
+		<servlet-name>MemberController</servlet-name>
+		<servlet-class>kr.or.ddit.member.MemberController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	  <servlet-name>T03RequestTest</servlet-name>
-	  <url-pattern>/T03RequestTest</url-pattern>
+		<servlet-name>MemberController</servlet-name>
+		<url-pattern>/member.do</url-pattern>
 	</servlet-mapping>
-	 <servlet>
-  	<servlet-name>MemberController</servlet-name>
-  	<servlet-class>kr.or.ddit.member.MemberController</servlet-class>
-  </servlet>
-  <servlet-mapping>
- 	 <servlet-name>MemberController</servlet-name>
-  	 <url-pattern>/member.do</url-pattern>
-  </servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoginController</servlet-name>
+		<servlet-class>kr.or.ddit.member.LoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginController</servlet-name>
+		<url-pattern>/login.do</url-pattern>
+	</servlet-mapping>
+
+
+
 </web-app>

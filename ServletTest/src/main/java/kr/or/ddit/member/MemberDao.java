@@ -24,6 +24,10 @@ public class MemberDao extends MybatisDao{
 		return selectList("member.memberList");
 	
 	}
+	
+	public MemberVo login(MemberVo member) {
+		return selectOne("member.login", member);
+	}
 
 
 

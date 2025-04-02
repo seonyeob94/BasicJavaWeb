@@ -7,6 +7,12 @@
 		FROM MEMBER
 	</select>
 
-
+	<select id="login" resultType="MemberVo" parameterType="MemberVo">
+		SELECT *
+		FROM MEMBER
+		WHERE ID= #{id}
+		AND PW= #{pw}
+		
+	</select>
 
 </mapper>

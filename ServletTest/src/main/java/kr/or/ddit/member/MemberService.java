@@ -22,4 +22,7 @@ public class MemberService {
 		return memberDao.memberList();
 	}
 
+	public MemberVo login(MemberVo member) {
+		return memberDao.login(member);
+	}
 }
