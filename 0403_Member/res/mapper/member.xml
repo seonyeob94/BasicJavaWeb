@@ -23,7 +23,7 @@
 	
 	<update id="memberUpdate" parameterType="memberVo">
 		UPDATE MEMBER
-		SET ID=#{id}, PW#={pw}, NAME=#{name}
+		SET ID=#{id}, PW=#{pw}, NAME=#{name}
 		WHERE MEM_NO=#{memNo}
 	</update>
 	

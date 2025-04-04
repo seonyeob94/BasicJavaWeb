@@ -39,7 +39,7 @@
 	<button onclick="goDelete(<%= member.getMemNo() %>)">삭제</button>
 	<script>
 		function goUpdate(memNo){
-			location.href = "memberUpdate.do?memNo="+memNo;
+			location.href = "updateForm?memNo="+memNo;
 
 		}
 		function goDelete(memNo){

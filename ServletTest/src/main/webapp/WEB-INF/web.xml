@@ -52,7 +52,7 @@
 		<servlet-name>T05ErroerHandler</servlet-name>
 		<url-pattern>/T05ErroerHandler</url-pattern>
 	</servlet-mapping>
-
+	
 
 	<error-page>
 		<error-code>404</error-code>
@@ -67,6 +67,25 @@
 	<session-config>
 		<session-timeout>1</session-timeout>
 	</session-config>
+
+
+	<filter>
+		<filter-name>T10ServletFilter</filter-name>
+		<filter-class>kr.or.ddit.web.T10ServletFilter</filter-class>
+		<init-param>
+			<param-name>encode</param-name>
+			<param-value>EUC-KR</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>T10ServletFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<description>MyServletListner</description>
+		<listener-class>kr.or.ddit.web.MyServletListner</listener-class>
+	</listener>
 
 
 	<servlet>

@@ -21,7 +21,7 @@
 				<th>NAME</th>
 				<th>DATE</th>
 			</tr>
-		</thead>
+		</thead>""
 		<tbody>
 			<% for(MemberVo member : memberList){
 			%>
