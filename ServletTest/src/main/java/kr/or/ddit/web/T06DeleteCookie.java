@@ -16,6 +16,7 @@ public class T06DeleteCookie extends HttpServlet {
 		Cookie[] cookies = req.getCookies();
 		
 		resp.setContentType("text/html");
+		
 		PrintWriter out = resp.getWriter();
 		out.println("<html>");
 		out.println("<body>");

@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -21,35 +23,47 @@ public class MemberController extends HttpServlet{
 		
 		List<MemberVo> memberList = memberService.memberList();
 		System.out.println(memberList);
+		
+		
+		//jsp/member.jsp 로 연결하고
+		// memberList를 req에 담아 출력하시오
+	
+		req.setAttribute("memberList", memberList);
+		
+		ServletContext ctx = req.getServletContext();
+		ctx.getRequestDispatcher("/WEB-INF/view/member.jsp").forward(req, resp);
+		
+		
+		
 
-		resp.setContentType("text/html; charset=UTF-8");
-		PrintWriter out =  resp.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println(	"<table border='1'>");
-		out.println(		"<thead>");
-		out.println(			"<tr>");
-		out.println(			"<th>NO</th>");
-		out.println(			"<th>ID</th>");
-		out.println(			"<th>NAME</th>");
-		out.println(			"<th>DATE</th>");
-		out.println(			"<tr>");
-		out.println(		"</thead>");
-		out.println(		"<tbody>");
-		for(MemberVo member : memberList) {
-			out.print("<tr>");
-			out.println(	"<td>"+member.getMemNo()+"</td>");
-			out.println(	"<td>"+member.getId()+"</td>");
-			out.println(	"<td>"+member.getName()+"</td>");
-			out.println(	"<td>"+member.getRegDate()+"</td>");
-			out.print("</tr>");
-		}
-		out.println(		"</tbody>");
-		out.println(	"</table>");
-		out.println("</body>");
-		out.println("</html>");
+//		resp.setContentType("text/html; charset=UTF-8");
+//		PrintWriter out =  resp.getWriter();
+//		out.println("<html>");
+//		out.println("<head>");
+//		out.println("</head>");
+//		out.println("<body>");
+//		out.println(	"<table border='1'>");
+//		out.println(		"<thead>");
+//		out.println(			"<tr>");
+//		out.println(			"<th>NO</th>");
+//		out.println(			"<th>ID</th>");
+//		out.println(			"<th>NAME</th>");
+//		out.println(			"<th>DATE</th>");
+//		out.println(			"<tr>");
+//		out.println(		"</thead>");
+//		out.println(		"<tbody>");
+//		for(MemberVo member : memberList) {
+//			out.print("<tr>");
+//			out.println(	"<td>"+member.getMemNo()+"</td>");
+//			out.println(	"<td>"+member.getId()+"</td>");
+//			out.println(	"<td>"+member.getName()+"</td>");
+//			out.println(	"<td>"+member.getRegDate()+"</td>");
+//			out.print("</tr>");
+//		}
+//		out.println(		"</tbody>");
+//		out.println(	"</table>");
+//		out.println("</body>");
+//		out.println("</html>");
 		
 	}
 }

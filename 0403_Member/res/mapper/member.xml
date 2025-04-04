@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	
+	<select id="memberList" resultType="MemberVo">
+		SELECT *
+		FROM MEMBER
+		ORDER BY MEM_NO
+	
+	</select>
+	
+	<select id="memberDetail" resultType="MemberVo" parameterType="int">
+		SELECT *
+		FROM MEMBER
+		WHERE MEM_NO=#{memNo}
+	</select>
+	
+	<insert id="memberInsert" parameterType="MemberVo">
+		INSERT INTO MEMBER
+		VALUES((SELECT MAX(MEM_NO)+1 FROM MEMBER), 
+				#{id}, #{pw}, #{name}, TO_CHAR(SYSDATE,'YYYY-MM-DD'), 'N')
+	</insert>
+	
+	<update id="memberUpdate" parameterType="memberVo">
+		UPDATE MEMBER
+		SET ID=#{id}, PW#={pw}, NAME=#{name}
+		WHERE MEM_NO=#{memNo}
+	</update>
+	
+	
+
+</mapper>
