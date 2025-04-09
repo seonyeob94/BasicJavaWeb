@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script type="text/javascript">
+ function toggleSubMenus(mainCheckbox){
+	const subMenuCheckboxes = document.querySelectorAll(".submenu");
+	subMenuCheckboxes.forEach(checkbox => {
+		checkbox.checked = mainCheckbox.checked;
+	});
+}
+
+		
+		
+function updateMainMenu(){
+	const mainCheckbox = document.getElementById('mainMenu');
+	const subMenuChekboxs = document.getElementsByClassName('submenu');
+	var allChecked = Array.from(subMenuChekboxs)
+					.every(checkbox => checkbox.checked);
+	
+	var allChecked = true;
+		for(var i=0;i<subMenuChekboxs.length;i++){
+		if (!subMenuChekboxs[i].checked){
+			allChecked= false;
+			break;
+		}
+	}
+	mainCheckbox.checked = allChecked;
+} 
+
+
+
+	
+</script>
+</head>
+<body>
+<!-- 대메뉴 체크박스 선택시 소메뉴 체크박스 여러개 선택되도록 -->
+<!-- 소메뉴 체크박스 전체 선택시 대메뉴 체크박스가 선택되도록 -->
+
+<!-- 각각 대메뉴 체크박스 선택시 소메뉴 체크박스 여러개 선택되도록 -->
+<!-- 하위 소메뉴 체크박스 전체 선택시 대메뉴 체크박스가 선택되도록 -->
+	<table>
+		<tbody>
+			<tr>
+				<td>대메뉴1</td>
+				<td><input type="checkbox" id="mainMenu" value="food" onclick="toggleSubMenus(this)">음식</td>
+			</tr>
+			<tr>
+				<td>소메뉴1-1</td>
+				<td><input type="checkbox" class="submenu" onclick="updateMainMenu()"></td>
+				
+				<td>소메뉴1-2</td>
+				<td><input type="checkbox" class="submenu" onclick="updateMainMenu()"></td>
+				
+				<td>소메뉴1-3</td>
+				<td><input type="checkbox" class="submenu" onclick="updateMainMenu()"></td>
+			</tr>
+			
+			
+		</tbody>
+	</table>
+
+</body>
+</html>

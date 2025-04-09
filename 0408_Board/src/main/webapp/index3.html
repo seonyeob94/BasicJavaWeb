@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+let productList = [];
+const proc1= () =>{
+	productList.sort((a, b) => a.name.localeCompare(b.name));
+	
+	
+}
+	
+</script>
+</head>
+<body>
+<!-- 테이블 각 컬럼으 선택시 해당 내용으로 정렬되게 변경 -->
+
+
+	<table>
+		<thead>
+			<tr>
+				<td><a href='#' onclick='proc1(this);'>NO</a></td>
+				<td><a href='#' onclick='proc1(this);'>가격</a></td>
+				<td><a href='#' onclick='proc1(this);'>상품타입</a></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>1000</td>
+				<td>1001</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>7000</td>
+				<td>8000</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>3000</td>
+				<td>12000</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
