@@ -7,30 +7,44 @@ import kr.or.ddit.vo.BoardCodeVo;
 import kr.or.ddit.vo.BoardVo;
 
 public class BoardService {
-	private static BoardService instance;
+	private static BoardService insatance;
 
 	private BoardService() {
 
 	}
 
 	public static BoardService getInstance() {
-		if (instance == null) {
-			instance = new BoardService();
+		if (insatance == null) {
+			insatance = new BoardService();
 		}
-		return instance;
+		return insatance;
 	}
-
-	BoardDao boardDao = BoardDao.getInstance();
 	
-//	BoardService boardService = BoardService.getInstance();
+	BoardDao boardDao = BoardDao.getInstance();
 	
 	public List<BoardCodeVo> codeList(){
 		return boardDao.codeList();
-//		return boardService.codeList();
 	}
+	
 	
 	public List<BoardVo> boardList(BoardVo board){
 		return boardDao.boardList(board);
+	}
+	
+	public BoardVo boardView(BoardVo board) {
+		return boardDao.boardView(board);
+	}
+	
+	public void boardDelete(BoardVo board) {
+		boardDao.boardDelete(board);
+	}
+	
+	public int getBoardNo() {
+		return boardDao.getBoardNo();
+	}
+	
+	public void boardInsert(BoardVo board) {
+		boardDao.boardInsert(board);
 	}
 	
 	

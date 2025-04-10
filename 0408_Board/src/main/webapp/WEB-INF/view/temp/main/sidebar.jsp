@@ -1,8 +1,6 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -29,23 +27,23 @@
             <div class="sidebar-heading">
                 게시판
             </div>
-            
-			<c:forEach var="code" items="${codeList}" >
-	            <!-- Nav Item - Pages Collapse Menu -->
-	            <li class="nav-item">
-	                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo${code.codeNo}"
-	                    aria-expanded="true" aria-controls="collapseTwo">
-	                    <i class="fas fa-fw fa-cog"></i>
-	                    <span>${code.codeName}</span>
-	                </a>
-	                <div id="collapseTwo${code.codeNo}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-	                    <div class="bg-white py-2 collapse-inner rounded">
-	                        <a class="collapse-item" href="boardList.do?codeNo=${code.codeNo}">게시판 리스트</a>
-	                        <a class="collapse-item" href="boardInsert.do?codeNo=${code.codeNo}">게시판 등록</a>
-	                    </div>
-	                </div>
-	            </li>
-            </c:forEach>
+
+		<c:forEach var="code" items="${codeList}" >
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo${code.codeNo}"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>${code.codeName}</span>
+                </a>
+                <div id="collapseTwo${code.codeNo}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="boardList.do?codeNo=${code.codeNo}">게시판 리스트</a>
+                        <a class="collapse-item" href="boardInsert.do?codeNo=${code.codeNo}">게시판 등록</a>
+                    </div>
+                </div>
+            </li>
+        </c:forEach>
 
 
             <!-- Divider -->

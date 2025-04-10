@@ -13,19 +13,17 @@ import kr.or.ddit.boad.service.BoardService;
 import kr.or.ddit.vo.BoardCodeVo;
 
 @WebServlet("/board/main.do")
-public class BoardMainController extends HttpServlet{
+public class BoardMainController extends HttpServlet {
 
-	BoardService bardService = BoardService.getInstance();
+	BoardService boardService = BoardService.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//board/main.jsp 만들고 메세지 아무거나
-		
-		List<BoardCodeVo> codeList = bardService.codeList();
-		req.setAttribute("codeList", codeList);
-		
+		// board/main.jsp 만들고 메세지 아무거나 출력
 		ServletContext ctx = req.getServletContext();
 		ctx.getRequestDispatcher("/WEB-INF/view/board/main.jsp").forward(req, resp);
-
+		
+		
 	}
+	
 }
