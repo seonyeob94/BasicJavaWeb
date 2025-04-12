@@ -75,6 +75,7 @@
 							<a href="/0408_Board/board/boardDelete.do?boardNo=${board.boardNo}&codeNo=${board.codeNo}" class="btn btn-primary">삭제</a>
 							</c:if>
 							<a href="/0408_Board/board/boardList.do?codeNo=${board.codeNo}" class="btn btn-worning">목록</a>
+							
 							</div>
 						</div>				
 					</div>

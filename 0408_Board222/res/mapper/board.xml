@@ -8,7 +8,7 @@
 		<result property="content" column="CONTENT"/>
 		<result property="regDate" column="REG_DATE"/>
 		<result property="cnt" column="CNT"/>
-		<result property="codeNo" column="CODE-NO"/>
+		<result property="codeNo" column="CODE_NO"/>
 		<result property="delyn" column="DELYN"/>
 	
 	
