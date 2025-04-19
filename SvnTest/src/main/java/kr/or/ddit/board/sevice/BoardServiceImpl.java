@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.or.ddit.board.dao.BoardDaoImpl;
 import kr.or.ddit.board.dao.IBoardDao;
+import kr.or.ddit.vo.BoardCodeVo;
 import kr.or.ddit.vo.BoardVo;
 
 public class BoardServiceImpl implements IBoardService {
@@ -27,6 +28,12 @@ public class BoardServiceImpl implements IBoardService {
 	public List<BoardVo> list(BoardVo board) {
 		
 		return boardDao.list(board);
+	}
+
+	@Override
+	public List<BoardCodeVo> codeList() {
+		// TODO Auto-generated method stub
+		return boardDao.codeList();
 	}
 
 }

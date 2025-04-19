@@ -3,6 +3,7 @@ package kr.or.ddit.board.dao;
 import java.util.List;
 
 import kr.or.ddit.util.MybatisDao;
+import kr.or.ddit.vo.BoardCodeVo;
 import kr.or.ddit.vo.BoardVo;
 
 public class BoardDaoImpl extends MybatisDao implements IBoardDao {
@@ -26,6 +27,12 @@ public class BoardDaoImpl extends MybatisDao implements IBoardDao {
 	public List<BoardVo> list(BoardVo board) {
 		
 		return selectList("board.boardList", board);
+	}
+
+	@Override
+	public List<BoardCodeVo> codeList() {
+		
+		return selectList("board.codeList");
 	}
 
 }
