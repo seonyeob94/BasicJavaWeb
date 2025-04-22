@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+    <div id="eventArea" style="height: 500px; width: 50%; background-color: goldenrod;" >
+        <h3>이벤트 영역</h3>
+        <p>여기에 이벤트 관련 내용을 작성하세요</p>
+
+    </div>
+
+
+ <script>
+    //키 이베트 감지
+    document.addEventListener("keydown", function(event){
+       	event.preventDefault();// 기본동작 방지
+		
+		 var keyCode = event.keyCode;
+
+        //alert("Key Code: "+keyCode);
+
+        console.log("Key Code: "+keyCode);
+		
+		if(keyCode==13){
+			alert("Enter key pressed");
+		}
+		
+		//클립보드에 복사하기 단축키 ctrl + c
+		if(event.ctrlKey && keyCode===67){
+			alert("Ctrl + c단축키가 눌렸습니다");
+			// 클립보드에 복사하는 코드 작성
+			var text = "클립보드에 복사할 텍스트";
+			navigator.clipboard.writeText(text).then(function(){
+				console.log("클립보드에 복사되었습니다"+text);
+			},function(err){
+				console.log("클립보드 복사하기 실패",err);
+			})
+			}
+			//클립보드에 붙혀넣기 단축키 ctrl + v
+		if(event.ctrlKey && keyCode===86){
+		
+			// 클립보드에 붙혀넣기하는 코드 작성
+		
+			navigator.clipboard.readText(text).then(function(){
+				console.log("클립보드에 복사되었습니다"+text);
+			},function(err){
+				console.log("클립보드 복사하기 실패",err);
+			});
+			
+			
+			
+		}
+    });
+	
+	//마우스 오른쪽 버튼 클릭시 알림
+	document.getElementById("eventArea").addEventListener("contextmenu", function(event){
+		event.preventDefault(); // 기본 컨텍스트 메뉴 방지
+		//alert("오른쪽 클릭이 감지되었습니다")
+
+        //컨텍스트 메뉴 있다면 삭제
+        var existingManu = document.querySelector(".context-manu");
+        if(existingManu){
+            existingManu.remove();
+        }
+		
+		//컨텍스트 메뉴 버튼 3개 생성
+        var contextmenu = document.createElement("div");
+        contextmenu.className="context-manu"; //클래스 이름 추가
+        contextmenu.style.position = "absolute";
+        contextmenu.style.top = event.clientY + "px";
+        contextmenu.style.left = event.clientX + "px";
+        contextmenu.style.backgroundColor = "#fff";
+        contextmenu.style.border = "1px solid #000";
+        contextmenu.style.padding = "10px";
+        contextmenu.style.zIndex = "1000"; //z-index를 높혀서 다른 요소 위에 표시
+        
+        contextmenu.innerHTML = "<button onclick = 'alert(\"메뉴1 클릭됨\")'> 메뉴 1</button>";
+        contextmenu.innerHTML += "<button onclick = 'alert(\"메뉴2 클릭됨\")'> 메뉴 2</button>";
+        contextmenu.innerHTML += "<button onclick = 'alert(\"메뉴3 클릭됨\")'> 메뉴 3</button>";
+
+        document.body.appendChild(contextmenu);
+
+        //클릭시 메뉴 제거
+        document.addEventListener("click", function(){
+            contextmenu.remove();
+
+        },{ once : true });  //한번만 실행되도록 설정
+    })
+	
+
+ </script>   
+
+</body>
+</html>
